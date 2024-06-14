@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Anderlechtse Gazette</title>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
+</head>
+<body>
+<header>
+    <nav>
+        <a href="/">Anderlechtse Gazette</a>
+        <a href="/new">New</a>
+        <a href="/about">About</a>
+    </nav>
+</header>
+<main>
+    <table>
+        <thead>
+        <tr>
+            <th>Title</th>
+            <th>Reporter Name</th>
+            <th>Details</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="article : ${articles}">
+            <td th:text="${article.name}">Title</td>
+            <td th:text="${article.reporter}">Reporter Name</td>
+            <td><a th:href="@{/details/{id}(id=${article.id})}">Details</a></td>
+        </tr>
+        </tbody>
+    </table>
+    <a href="/new">Add new article</a>
+</main>
+<footer>
+    <p>&copy; 2024 Anderlechtse Gazette</p>
+</footer>
+</body>
+</html>
